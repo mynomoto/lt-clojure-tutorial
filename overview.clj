@@ -13,11 +13,12 @@
 
 ;; To begin, open this file on Light Table.
 ;; To evaluate a form place the cursor in the form and type ctrl-enter.
-;; The first eval will take several seconds . Light Table is creating a
+;; The first eval will take several seconds. Light Table is creating a
 ;; connection to a REPL. After the first it will be fast.
 
-;; The result of each eval will apear right next to the form. Some
-;; forms like the ns declaration return nil. This is ok.
+;; The result of each eval will apear right next to the form. Some forms like
+;; the ns declaration return nil. This is ok. Also, sometimes, the result will
+;; be cropped. You can click on it to see the full result.
 
 ;; You can put the cursor over some function and press ctrl-shift-d to see the
 ;; documentation of the function. Press ctrl-shift-d again to make it go away.
@@ -36,23 +37,40 @@
 
 ;; :require is how you can import functionality from a different namespace into
 ;; the current one. Here we are requiring `clojure.string` and giving it an
-;; alias. We could write the following:
+;; alias `string`. We could write the following:
 
 (clojure.string/blank? "")
 
-;; But that's really verbose compared to:
+;; Here `blank?` is a function on the `clojure.string` namespace. But since we
+;; gave it an alias let's use it because it's less verbose.
 
 (string/blank? "")
 
 ;; You could use a smaller name after :as like [clojure.string :as s].
 ;; In this case the expression above should be (s/blank? "").
 
+
+;; Using functions
+;; ----------------------------------------------------------------------------
+
+;; Going back a little, to call a function on clojure you put it in the
+;; first spot of a list. The rest of the list are the argument of the function.
+;; A list is something between `(` and `)`. So `(a-function arg1 arg2)` is a
+;; function call with two arguments.
+
+(str "Hello " "Clojure!")
+
+;; Here `str` is our function, `"Hello "` is the fist argument and `"Clojure!"`
+;; is the second argument.
+
+
 ;; Comments
 ;; ----------------------------------------------------------------------------
 
 ;; There are three ways to create comments in Clojure. The first way is
 ;; by preceding a line with a semi-colon, just like the lines you are reading
-;; now. This doesn't exist to Clojure.
+;; now. This doesn't exist to Clojure, in the sense that it doesn't return
+;; anything, not even nil.
 
 ;; The second way is by preceding a form with `#_`. This causes Clojure
 ;; to skip the evaluation of only the form immediately following, without
@@ -62,6 +80,11 @@
 ;; Try to reveal the secret message below:
 
 (str "The secret word is " #_(string/reverse "erujolC"))
+
+;; You can also compose `#_`. So `#_#_` will ignore the next two forms.
+;; Just compose it at will.
+
+(str #_#_(str "Ignoring this...") (str "and this...") (str "but not this."))
 
 ;; Finally, you can also create a comment using the `comment` macro. One common
 ;; technique is to use the `comment` macro to include code to be evaluated in a
@@ -78,7 +101,7 @@
   )
 
 ;; The `comment` macro makes the whole form return `nil`. Now go back and
-;; highlight just the middle line, then type ctrl-ENTER. In this way
+;; highlight just the middle line, then type ctrl-enter. In this way
 ;; you can include code samples or quick tests in-line with the rest of
 ;; your code. In this tutorial, you will find some code commented in this way.
 ;; You should select and run the commented code.
@@ -96,11 +119,22 @@
 
 x
 
+;; And you can define a local with `let`.
+
+(let [x 2]
+  x)
+
+(let [a 1
+      b 4]
+  [a b])
+
+;; The locals are defined inside the `[]`. And the scope is the let form.
+
 ;; You can also refer to top level definitions by fully qualifying them.
 
 overview/x
 
-;; This means top levels can never be shadowed by locals and function
+;; This means top levels can never be really shadowed by locals and function
 ;; parameters.
 
 (let [x 2]
@@ -1012,7 +1046,7 @@ x
 ;; ----------------------------------------------------------------------------
 
 ;; Refs are a coordinated reference type. They allow you to change multiple
-;; identities at the same time. Lets see an example.
+;; identities at the same time. Let's see an example.
 
 (def bucket-1 (ref 0))
 
@@ -1052,7 +1086,7 @@ x
 
 (def bucket-2 (ref 10))
 
-;; Now lets create a function to move things from one bucket to another.
+;; Now let's create a function to move things from one bucket to another.
 
 (defn move-content [origin destination quantity]
   (dosync
@@ -1281,7 +1315,7 @@ x
 
 (.toString (Foo. 1 2))
 
-;; Lets create a interface to change the fields of a instance of Foo
+;; Let's create a interface to change the fields of a instance of Foo
 
 (definterface IFoo
   (setA [val])
