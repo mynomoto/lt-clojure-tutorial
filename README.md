@@ -16,9 +16,30 @@ Install [Leiningen](http://leiningen.org) and
 
 Open `overview.clj` on Light Table and follow the intructions.
 
+## Learn more
+* [Clojure Cheat Sheet](http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html):
+lots of functions sorted in categories. Do you want to know how to create,
+examine or "change" a list? It's there. A vector? A map? It's all there. It
+has links to examples in [Clojure Docs](http://clojuredocs.org).
+
+* [Clojure Doc](http://clojure-doc.org/):
+One excelent source of guides is CDS (Clojure Doc). There you will find guides
+for essentials, core language, ecosystem and tutorials.
+
+* [Clojure Docs](http://clojuredocs.org):
+You may look down on Clojuredocs because it has only docs for Clojure 1.3.0.
+But you really shouldn't, since it's one of the best sources of examples of how
+to use Clojure. And in most cases, the docs haven't changed since 1.3.0.
+
+* [Clojure Group](http://groups.google.com/group/clojure):
+You can also use the group to get in touch with the comunity.
+
+* \#clojure on freenode for IRC users. It's the best option for immediate
+help.
+
 ## Contributing
 
-If you find some mistake, typos or want to contribute let me know or open
+If you find some mistake, typo or want to contribute let me know or open
 an issue or pull request.
 
 ## License
