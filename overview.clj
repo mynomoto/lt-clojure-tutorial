@@ -154,6 +154,29 @@ overview/x
 (z)
 
 
+;; Function literals
+;; ----------------------------------------------------------------------------
+
+;; Clojure also supports a shorthand function literal  `#()` which is useful.
+;; The two examples below are equivalent.
+
+((fn [] (str "A function")))
+
+(#(str "A function"))
+
+;; You can use the % and %N placeholders to represent function arguments.
+
+((fn [x] (str "One argument: " x)) 1)
+
+(#(str "One argument: " %) 1)
+
+;; With two arguments.
+
+((fn [x y] (str "Two arguments: " x " and " y)) 3 4)
+
+(#(str "Two arguments: " %1 " and " %2) 3 4)
+
+
 ;; Literal data types
 ;; ----------------------------------------------------------------------------
 
@@ -191,23 +214,6 @@ overview/x
 (class a-keyword)
 
 ;; Keywords are an example of a clojure literal.
-
-
-;; Function literals
-;; ----------------------------------------------------------------------------
-
-;; Clojure also supports a shorthand function literal which is useful
-;; You can use the % and %N placeholders to represent function arguments.
-
-;; You should not abuse the function literal notation as it degrades readability
-;; outside of simple cases. It is nice for simple functional cases such as
-;; the following. You could map over a Clojure vector like this:
-
-(map (fn [n] (* n 2)) [1 2 3 4 5])
-
-;; Or you can save typing a few characters like this:
-
-(map #(* % 2) [1 2 3 4 5])
 
 
 ;; Clojure data types
