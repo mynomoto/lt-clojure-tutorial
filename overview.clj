@@ -1452,3 +1452,19 @@ x
 (aset yucky-stuff 1 4)
 
 yucky-stuff
+
+
+;; Other resources to learn
+;; ----------------------------------------------------------------------------
+
+;; The Clojure cheat sheet is incredible useful.
+;; http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html
+
+;; One excelent source of guides is CDS (Clojure Doc). There you will find
+;; guides for essentials, core language, ecosystem and tutorials.
+;; http://clojure-doc.org/
+
+;; You may look down on Clojuredocs because it has only docs for Clojure 1.3.0.
+;; You really shouldn't, since it's one of the best sources of examples of how
+;; to use Clojure. And in most cases, the docs haven't changed since 1.3.0.
+;; http://clojuredocs.org
