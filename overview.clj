@@ -1468,3 +1468,8 @@ yucky-stuff
 ;; You really shouldn't, since it's one of the best sources of examples of how
 ;; to use Clojure. And in most cases, the docs haven't changed since 1.3.0.
 ;; http://clojuredocs.org
+
+;; There is a #clojure channel on freenode for IRC users. It's the best way to
+;; get some immediate assistance.
+
+;; There is also a group: http://groups.google.com/group/clojure
