@@ -8,6 +8,7 @@
 ;; This overview is a port of the Light Table ClojureScript Tutorial by David
 ;; Nolen (https://github.com/swannodette/lt-cljs-tutorial) with some changes.
 
+
 ;; Basics
 ;; ============================================================================
 
@@ -1455,7 +1456,7 @@ yucky-stuff
 
 
 ;; Other resources to learn
-;; ----------------------------------------------------------------------------
+;; ============================================================================
 
 ;; The Clojure cheat sheet is incredible useful.
 ;; http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html

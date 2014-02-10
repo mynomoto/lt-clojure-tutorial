@@ -14,7 +14,13 @@ I intend to add more tutorials to this repository with more detail.
 Install [Leiningen](http://leiningen.org) and
 [Light Table](http://www.lighttable.com).
 
-Open `overview.clj` on Light Table and follow the intructions.
+There are two tutorials in the moment, but more will come.
+
+If you are new to Clojure or need a refresh open `overview.clj` on Light Table
+and follow the intructions.
+
+If you want to know more about numbers in Clojure, open `numbers.clj` on Light
+Table.
 
 ## Learn more
 * [Clojure Cheat Sheet](http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html):
