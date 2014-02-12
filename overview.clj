@@ -1459,7 +1459,7 @@ yucky-stuff
 ;; ============================================================================
 
 ;; The Clojure cheat sheet is incredible useful.
-;; http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html
+;; http://clojure.org/cheatsheet
 
 ;; One excelent source of guides is CDS (Clojure Doc). There you will find
 ;; guides for essentials, core language, ecosystem and tutorials.

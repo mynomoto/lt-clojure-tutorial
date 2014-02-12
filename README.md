@@ -22,8 +22,11 @@ and follow the intructions.
 If you want to know more about numbers in Clojure, open `numbers.clj` on Light
 Table.
 
+If you want to know more about conditionals in Clojure, open `conditionals.clj`
+on Light Table. I'm still working on it but it already has a lot of examples.
+
 ## Learn more
-* [Clojure Cheat Sheet](http://jafingerhut.github.io/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html):
+* [Clojure Cheat Sheet](http://clojure.org/cheatsheet):
 lots of functions sorted in categories. Do you want to know how to create,
 examine or "change" a list? It's there. A vector? A map? It's all there. It
 has links to examples in [Clojure Docs](http://clojuredocs.org).
