@@ -26,12 +26,16 @@
 
 ;; In Clojure there are several types of numbers useful in different
 ;; situations. Here you can see some of this types. Several of them are just
-;; java numbers.
+;; java numbers. Let's start with the number you are going to be using the
+;; most in Clojure. They are the default Clojure numbers.
+
+
+;; Default Clojure numbers
+;; ============================================================================
 
 ;; Integers
 ;; ============================================================================
 ;; Integers in clojure are Java Long by default.
-
 
 ;; Long
 ;; ----------------------------------------------------------------------------
@@ -88,8 +92,8 @@ Long/MAX_VALUE
 
 ;; BigInt
 ;; ----------------------------------------------------------------------------
-;; Clojure offers you a BigInt type that offer arbitrary precision.
-;; Just add an `N` to the end of the number. Clojure BigInt is not
+;; Clojure offers you a BigInt type that offer arbitrary precision integers.
+;; Just add an `N` to the end of the number. Clojure BigInt is not the same as
 ;; Java BigInteger.
 
 (type 2N)
@@ -106,37 +110,6 @@ Long/MAX_VALUE
 (inc (bigint Long/MAX_VALUE))
 
 
-;; Other Integers
-;; ----------------------------------------------------------------------------
-;; We can use `byte`, `short`, `int` and `biginteger` to coerce to those types.
-
-(type (byte 127))
-
-(type (short 10))
-
-(type (int 1))
-
-(type (biginteger 800))
-
-;; There is also the interop option to get instances of these numbers.
-
-(Byte. "70")
-
-(type (Byte. "70"))
-
-(Short. "10")
-
-(type (Short. "10"))
-
-(Integer. 4)
-
-(type (Integer. 4))
-
-(BigInteger. "4")
-
-(type (BigInteger. "4"))
-
-
 ;; Is a number a integer?
 ;; ----------------------------------------------------------------------------
 ;; You can test with `integer?`
@@ -144,14 +117,6 @@ Long/MAX_VALUE
 (integer? 1)
 
 (integer? 1N)
-
-(integer? (byte 127))
-
-(integer? (short 10))
-
-(integer? (int 1))
-
-(integer? (biginteger 80))
 
 ;; Floats and ratios aren't integers.
 
@@ -189,25 +154,11 @@ Long/MAX_VALUE
 ;; or BigDecimal type. We'll talk about these two in a moment.
 
 
-;; Float
-;; ----------------------------------------------------------------------------
-;; Floats are less precise than Doubles, but you can coerce to Float using
-;; `float`.
-
-(type (float 1.5))
-
-;; There is also the interop.
-
-(Float. "10")
-
-
 ;; Is a number a float?
 ;; ----------------------------------------------------------------------------
-;; You can check if a number is a float (Double or Float) with `float?`
+;; You can check if a number is a float with `float?`
 
 (float? 10.2)
-
-(float? (float 10.2))
 
 ;; Integers and ratios are not floats.
 
@@ -218,7 +169,8 @@ Long/MAX_VALUE
 
 ;; Ratio
 ;; ============================================================================
-;; Clojure has a Ratio type to represent rational numbers.
+;; Clojure has a Ratio type to represent rational numbers. They are arbitrarily
+;; precise.
 
 (type 3/4)
 
@@ -270,7 +222,9 @@ Long/MAX_VALUE
 ;; BigDecimal
 ;; ============================================================================
 ;; Clojure has a BigDecimal type to represent rational numbers. It's a Java
-;; BigDecimal. To create one, you add a `M` to the end of the number.
+;; BigDecimal. To create one, you add a `M` to the end of the number. If you
+;; need some calculation to be precise, you should use a BigDecimal or a Ratio.
+;; Floats will give you headaches.
 
 (type 13.5M)
 
@@ -314,6 +268,79 @@ Long/MAX_VALUE
 
 (decimal? 1/2)
 
+
+;; Other numbers
+;; ============================================================================
+;; These number are mainly for interop purposes. Clojure may even convert them
+;; to default types without warning. You probably shouldn't use these if you
+;; are not sure you need them.
+
+;; Other integers
+;; ----------------------------------------------------------------------------
+;; We can use `byte`, `short`, `int` and `biginteger` to coerce to those types.
+
+(type (byte 127))
+
+(type (short 10))
+
+(type (int 1))
+
+(type (biginteger 800))
+
+;; There is also the interop option to get instances of these numbers.
+
+(Byte. "70")
+
+(type (Byte. "70"))
+
+(Short. "10")
+
+(type (Short. "10"))
+
+(Integer. 4)
+
+(type (Integer. 4))
+
+(BigInteger. "4")
+
+(type (BigInteger. "4"))
+
+;; Clojure may convert them to default types.
+
+(type (+ (byte 1) (byte 2)))
+
+;; All those types are also considered integers for Clojure.
+
+(integer? (byte 127))
+
+(integer? (short 10))
+
+(integer? (int 1))
+
+(integer? (biginteger 80))
+
+
+;; Other floats
+;; ----------------------------------------------------------------------------
+
+;; Float
+;; ----------------------------------------------------------------------------
+;; Floats are less precise than Doubles, but you can coerce to Float using
+;; `float`.
+
+(type (float 1.5))
+
+;; There is also the interop.
+
+(Float. "10")
+
+;; Clojure may convert them to Double without warning.
+
+(type (+ (float 1.5) (float 1.1)))
+
+;; Floats are also float for Clojure.
+
+(float? (float 1.5))
 
 ;; Next
 ;; ============================================================================
